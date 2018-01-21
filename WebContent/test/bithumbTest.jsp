@@ -19,6 +19,9 @@ try{
 	OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
 	wr.write(postSql);
 	wr.flush();
+	
+	wr.flush();
+	
 	BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 	StringBuilder sb = new StringBuilder();
 	String line=null;
