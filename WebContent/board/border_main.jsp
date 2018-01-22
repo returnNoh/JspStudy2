@@ -82,7 +82,7 @@ public void con(){
 <option value="4"> 글 내용 </option>
 </td>
 <td>
-<input type="text" name="search" placeholder="검색내용">
+<input type="text" name="search" size="15" >
 </td>
 <td align="right">
 <input  type="button" value="글 작성" onclick="self.location='border_new.jsp'">

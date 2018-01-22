@@ -365,7 +365,7 @@ top:0px;
       
 	  
 	      <nav id="mm">
-		          <div> <a href="#" class="main1"><b>시타델</b></a>
+		          <div> <a href="board/border_main.jsp" class="main1"><b>시타델</b></a>
 				          <ul class="sub" id="bo">
 						         <li>       <ul>
 								                            <li><a href="#">기본 배치</a></li>
