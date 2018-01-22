@@ -5,6 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title> 레이아웃 과제 </title>
+<%request.setCharacterEncoding("UTF-8");
+	if(request.getParameter("log_id")!=null){
+		
+	}
+%>
+
 
   <style>
 	  
@@ -414,7 +420,8 @@ top:0px;
 								  
 								  </div>
 		  </nav> <!--상단 메뉴 (왼쪽)7-->
-
+		  
+		<%if(request.getParameter("id")==null){ %>
 		        <nav id="log">
 				          <ul>
 				              <li><a class="log1" href="login/로그인.jsp">login</a></li><br>
@@ -422,7 +429,8 @@ top:0px;
 						  </ul>
 
 				</nav> <!--로그인부분 (상단 우측)3-->
-
+		<%} %>
+		
 				</header>
 			</div>
       

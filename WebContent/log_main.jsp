@@ -9,7 +9,7 @@
   <%request.setCharacterEncoding("UTF-8");
   String id =request.getParameter("log_id");
   		String pass = request.getParameter("log_pass");
-  %>
+  		%>
 
   <style>
 	  

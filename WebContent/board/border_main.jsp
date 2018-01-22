@@ -74,7 +74,16 @@ public void con(){
 
 <%}} %>
 <tr>
-
+<td>
+<select name="select">
+<option value="1"> 글 제목 </option>
+<option value="2"> 글 번호 </option>
+<option value="3"> 글쓴이 </option>
+<option value="4"> 글 내용 </option>
+</td>
+<td>
+<input type="text" name="serch" placeholder="검색내용">
+</td>
 <td align="right">
 <input  type="button" value="글 작성" onclick="self.location='border_new.jsp'">
 </td>
