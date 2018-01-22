@@ -6,8 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title> 레이아웃 과제 </title>
 <%request.setCharacterEncoding("UTF-8");
-	if(request.getParameter("log_id")!=null){
-		
+String id= null;
+String name =null;
+	if(request.getParameter("name")!=null){
+		id = request.getParameter("id");
+		name = request.getParameter("name");
 	}
 %>
 
@@ -429,8 +432,14 @@ top:0px;
 						  </ul>
 
 				</nav> <!--로그인부분 (상단 우측)3-->
-		<%} %>
-		
+		<%}else{ %>
+					<table border="1">
+					<tr>
+					<td><%=name%></td><td><%=id %></td>
+					</tr>
+					</table>
+
+<%} %>		
 				</header>
 			</div>
       

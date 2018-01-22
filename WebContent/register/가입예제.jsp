@@ -18,10 +18,15 @@ body{background:#fff url(../images/bg3.jpg) repeat-x bottom}
   <script>
   //var gun = document.myform.tab.tr1.td1.ID2.value
   function Unique(value){
-	  if(value=="아이디 중복체크")
+	  if(value=="아이디 중복체크"){
 	  open("study/Unique.html","w","left=300,top=250,width=400,height=200,toolbar=yes,scrollbars=yes,resizable=no")
-  	  else if(value=="닉네임 중복체크")
+	  /* <jsp:include page="study/Unique.html" flush="false"> */
+	  }
+  	  else if(value=="닉네임 중복체크"){
   	  open("study/Unique2.html","w","left=300,top=250,width=400,height=200,toolbar=yes,scrollbars=yes,resizable=no")
+  	 /*  <jsp:include page="study/Unique2.html" flush="false"> */
+  }
+  	  //include 액션태그 사용하는걸로 바꾸기
   }
   
   

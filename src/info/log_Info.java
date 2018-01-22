@@ -1,3 +1,5 @@
+package info;
+
 
 
 import java.io.IOException;
@@ -13,6 +15,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.omg.PortableInterceptor.ForwardRequest;
 
 /**
  * Servlet implementation class log_Info
@@ -65,17 +69,20 @@ public class log_Info extends HttpServlet {
 					ps.setString(2, pass);
 					rs = ps.executeQuery();
 					rs.next();
+					response.addHeader("name",rs.getString(2));
+					response.addHeader("id",rs.getString(1));
 					
-					out.println("<table border='1'>"
-							+"<tr>"
-							+"<td>"
-							+ "회원명" 
-							+"</td><td>"
-							+ rs.getString(2)
-							+ "</td></tr><tr><td>아이디</td><td>" 
-							+ rs.getString(1)
-							+"</td></tr>"
-							+ "</table>");
+					//response.sendRedirect("../main.jsp");
+//					out.println("<table border='1'>"
+//							+"<tr>"
+//							+"<td>"
+//							+ "회원명" 
+//							+"</td><td>"
+//							+ rs.getString(2)
+//							+ "</td></tr><tr><td>아이디</td><td>" 
+//							+ rs.getString(1)
+//							+"</td></tr>"
+//							+ "</table>");
 					if(rs!=null)
 					rs.close();
 					if(ps!=null)
