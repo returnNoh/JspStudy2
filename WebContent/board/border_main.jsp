@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page import="java.sql.*,java.util.*" %>
+    <%@page import="DB.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -54,7 +55,7 @@ public void con(){
 </head>
 <body>
 
-<form>
+<form method="get">
 
 <table align="center"
          width="70%" 
@@ -76,13 +77,13 @@ public void con(){
 <tr>
 <td>
 <select name="select">
-<option value="1"> 글 제목 </option>
-<option value="2"> 글 번호 </option>
-<option value="3"> 글쓴이 </option>
-<option value="4"> 글 내용 </option>
+<option value="border_title"> 글 제목 </option>
+<option value="border_num"> 글 번호 </option>
+<option value="border_id"> 글쓴이 </option>
+<option value="border_contents"> 글 내용 </option>
 </td>
 <td>
-<input type="text" name="search" size="15" >
+<input type="text" name="search" size="15" ><input type="submit" value="검색">
 </td>
 <td align="right">
 <input  type="button" value="글 작성" onclick="self.location='border_new.jsp'">

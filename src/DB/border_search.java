@@ -4,14 +4,13 @@ import java.sql.*;
 import java.util.*;
 public class border_search {
 	
+	private String search;
 	
-	String str="노인욱";
-	Connection conn=null;
-	PreparedStatement ps = null;
-	ResultSet rs = null;
-	String sql=null;
 		public border_search(String select,String tex){
-			
+			PreparedStatement ps = null;
+			ResultSet rs = null;
+			String sql=null;
+			Connection conn=null;
 			String url = "jdbc:oracle:thin:@192.168.0.16:1521:orcl"; // localhost에 아이피주소, 1521은 포트번호 orcl은 뭐였더라..
 			try {
 				// 드라이버 로드

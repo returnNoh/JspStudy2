@@ -18,6 +18,7 @@ function check_null(){
 		return;
 	}
 	}
+
 	document.myform.submit();
 }
 
@@ -25,7 +26,7 @@ function check_null(){
 </head>
 <body>
 
-<form name = "myform" method="post" action="../log_main.jsp">
+<form name = "myform" method="post" action="../main.jsp">
 
 <table align="center"
          width="70%" 

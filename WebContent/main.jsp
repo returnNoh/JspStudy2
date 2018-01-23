@@ -8,9 +8,12 @@
 <%request.setCharacterEncoding("UTF-8");
 String id= null;
 String name =null;
-	if(request.getParameter("name")!=null){
-		id = request.getParameter("id");
-		name = request.getParameter("name");
+	if(request.getParameter("log_id")!=null){
+		id = request.getParameter("log_id");
+		name = request.getParameter("log_name");
+		
+		session.setAttribute("id", id);
+		session.setAttribute("name", name);
 	}
 %>
 
@@ -424,7 +427,7 @@ top:0px;
 								  </div>
 		  </nav> <!--상단 메뉴 (왼쪽)7-->
 		  
-		<%if(request.getParameter("id")==null){ %>
+		<%if(request.getParameter("log_id")==null){ %>
 		        <nav id="log">
 				          <ul>
 				              <li><a class="log1" href="login/로그인.jsp">login</a></li><br>
@@ -435,7 +438,7 @@ top:0px;
 		<%}else{ %>
 					<table border="1">
 					<tr>
-					<td><%=name%></td><td><%=id %></td>
+					<td><%=name%></td><td><%=id %></td><td><a href="user/user_info">내정보</a></td>
 					</tr>
 					</table>
 
