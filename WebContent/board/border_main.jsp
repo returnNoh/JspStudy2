@@ -39,23 +39,21 @@ public void con(){
 <%
 		request.setCharacterEncoding("UTF-8");
 
-		con();
+		
 		if(request.getParameter("border_title")!=null){
-		String title = request.getParameter("border_title");
-		String contents = request.getParameter("border_contents");
-		ps=conn.prepareStatement("insert into border values((select max(border_num)+1 from border),?,'system',0,?)");
-		ps.setString(1, title);
-		ps.setString(2, contents);
-		ps.execute();
-		}
+		%>
+		<jsp:include page="border_search.jsp"/>
+		<%
+		}else{
+			con();
 		ps=conn.prepareStatement("select * from border order by border_num desc");
 		rs=ps.executeQuery();
-		
+		}
 %>
 </head>
 <body>
 
-<form method="get">
+<form method="get" action="border_main.jsp">
 
 <table align="center"
          width="70%" 
