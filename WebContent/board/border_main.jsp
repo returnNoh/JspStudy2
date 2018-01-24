@@ -12,7 +12,7 @@ String str="노인욱";
 Connection conn=null;
 PreparedStatement ps = null;
 ResultSet rs = null;
-
+ResultSet rs2=null;
 public void con(){
 	
 	
@@ -38,22 +38,34 @@ public void con(){
 %>
 <%
 		request.setCharacterEncoding("UTF-8");
+		con();
+		
+				
+		if(request.getParameter("search")!=null){
+		
+		String select = request.getParameter("select");
+		String search = request.getParameter("search");
+		String sql = "select * from border where "+select+" like '%"+search+"%' order by border_num desc ";
+		
+		//검색부분
+		
+		ps=conn.prepareStatement(sql);
 
 		
-		if(request.getParameter("border_title")!=null){
-		%>
-		<jsp:include page="border_search.jsp"/>
-		<%
+		rs=ps.executeQuery();
 		}else{
-			con();
+			
+			
 		ps=conn.prepareStatement("select * from border order by border_num desc");
 		rs=ps.executeQuery();
-		}
+				}
+		
+		//ps=conn.prepareStatement(""); 
 %>
 </head>
 <body>
 
-<form method="get" action="border_main.jsp">
+<form name="board" method="get" action="border_main.jsp">
 
 <table align="center"
          width="70%" 
@@ -62,7 +74,7 @@ public void con(){
 		    cellspacing="10"
 			 cellpadding="10"
 			 name = "tab">
-
+			 
 <%for(int i=0; i<10;i++){  %>
 <tr><%if(rs.next()){ %>
 <td><%=rs.getString("border_num")%></td>
@@ -79,9 +91,21 @@ public void con(){
 <option value="border_num"> 글 번호 </option>
 <option value="border_id"> 글쓴이 </option>
 <option value="border_contents"> 글 내용 </option>
+</select>
 </td>
 <td>
-<input type="text" name="search" size="15" ><input type="submit" value="검색">
+<script>
+function search(){
+	if(document.board.search.value==""){
+		
+		self.location="border_main.jsp"
+	}else{
+		document.board.submit();
+	}
+	
+}
+</script>
+<input type="text" name="search" size="15" ><input type="button" value="검색" onclick="search()">
 </td>
 <td align="right">
 <input  type="button" value="글 작성" onclick="self.location='border_new.jsp'">
@@ -90,6 +114,7 @@ public void con(){
 </tr>
 
 </table>
+
 
 
 

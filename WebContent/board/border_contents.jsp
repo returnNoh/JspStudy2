@@ -39,6 +39,10 @@ public void con(){
 <%	request.setCharacterEncoding("UTF-8");
 		int border_num = Integer.parseInt(request.getParameter("num"));
 		con();
+		ps=conn.prepareStatement("update border set border_join=(select border_join+1 from border where border_num=?) where border_num=?");
+		ps.setInt(1, border_num);
+		ps.setInt(2, border_num);
+		ps.executeUpdate();
 		ps=conn.prepareStatement("select border_title,border_contents from border where border_num=?");
 		ps.setInt(1, border_num);
 		rs=ps.executeQuery();
@@ -53,10 +57,14 @@ public void con(){
 
 글 내용:<input type="text" disabled name="border_contents" value = "<%=rs.getString("border_contents")%>" style="width:400px; height:100px;">
 
-<input type="button" value="글 목록으로" onclick="JavaScript:history.go(-1)"><br>
+<input type="button" value="글 목록으로" onclick="JavaScript:location='border_main.jsp'"><br>
 <input type="button" value="글 삭제하기" onclick=""><br>
-<a href="border_re_write.jsp">글 수정하기</a>
+<a href="border_re_write.jsp?border_num=<%=border_num%>">글 수정하기</a>
 </form>
+
+<br>
+<jsp:include page="border_comment.jsp?border_num=<%=border_num %>"/>
+
 </center>
 <%if(rs!=null)rs.close();
 		if(ps!=null)ps.close();
